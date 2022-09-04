@@ -44,4 +44,15 @@ public class LeapYearTests
 
     result.Should().Be(true);
   }
+
+  // year has to be greater than or equal to 1582
+  [Fact]
+  public void isLeapYear_given_1581_throws_ArgumentException()
+  {
+    var leapYearChecker = new LeapYearChecker();
+
+    var result = () => { leapYearChecker.isLeapYear(1581); };
+
+    result.Should().Throw<ArgumentException>();
+  }
 }
