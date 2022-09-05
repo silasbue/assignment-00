@@ -1,7 +1,7 @@
 @startuml isLeapYear
-  title isLeapYear
-  (*) --> "Gets user input"
-  if "isGreaterThanOrEqualTo1582?" then
+  title isLeapYear(int year)
+  (*) --> "function invoked"
+  ---> [ checkIf: year] if "isGreaterThanOrEqualTo1582?" then
     --> [yes] if "isDivisibleBy100?" then
         --> [yes] if "isDivisibleBy400?" then
           -> [yes] ===A1===
