@@ -1,0 +1,24 @@
+@startuml isLeapYear
+  title isLeapYear(int year)
+  (*) --> "function invoked"
+  ---> [ checkIf: year] if "isGreaterThanOrEqualTo1582?" then
+    --> [yes] if "isDivisibleBy100?" then
+        --> [yes] if "isDivisibleBy400?" then
+          -> [yes] ===A1===
+          else
+            ----> [no] "return false"
+          endif
+        else
+          --> [no] ===A1===
+            --> if "\nisDivisibleBy4?" then
+            --> [yes] "return true"
+            --> (*)
+            else
+              --> [no] "return false"
+              --> (*)
+            endif
+        endif
+  else
+    -> [no] "throw ArgumentException"
+  endif
+@enduml
